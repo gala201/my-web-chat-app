@@ -1,24 +1,50 @@
-import logo from './logo.svg';
 import './App.css';
+import enter from './assets/enter.svg'
 
 function App() {
+
+
+  // https://github.com/Illnas/Chat-App-v1.0
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <body className="App">
+
+      <div className='menu'>
+        <h1 className='app-name'>Chat App</h1>
+        <h2 className='messages'>Participants</h2>
+        <div className='participants'>
+          <div className='chatter'>
+            <div className='random-color'></div>
+            <div className='chatter-name'>Ivo</div>
+          </div>
+          <div className='chatter'>
+            <div className='random-color'></div>
+            <div className='chatter-name'>Karlo</div>
+          </div>
+        </div>
+      </div>
+
+      <main className='chat-window'>
+        <div className='current-chat'>Chat Room</div>
+        <div className='chat'>
+          <div className='messages'>
+            <p>Hello</p>
+            <div className='date'>Date</div>
+          </div>
+
+          <div className='my-message'>
+            <p>Hello</p>
+            <div className='date'>Date</div>
+          </div>
+
+
+        </div>
+        <div className='input-wrap'>
+          <input type="text" />
+          <button><img src={enter} alt="" /></button>
+        </div>
+      </main>
+
+    </body>
   );
 }
 
