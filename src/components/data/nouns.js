@@ -63,6 +63,6 @@ const nouns = [
     "frog",
     "smoke",
     "star",
-];
+  ];
 
-export default nouns
+  export default nouns

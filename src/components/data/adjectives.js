@@ -63,7 +63,7 @@ const adjectives = [
     "purple",
     "lively",
     "nameless",
-];
+  ];
 
-
-export default adjectives
+  
+  export default adjectives

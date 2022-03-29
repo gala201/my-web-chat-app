@@ -1,11 +1,8 @@
-import './App.css';
-import enter from './assets/enter.svg'
 import { useState, useEffect } from "react";
-import nouns from "./components/data/nouns";
-import adjectives from "./components/data/adjectives";
-
-
-// https://github.com/Illnas/Chat-App-v1.0
+import Input from "./Components/Input";
+import Message from "./Components/Message";
+import nouns from "./Components/Data/nouns";
+import adjectives from "./Components/Data/adjectives";
 
 function randomName() {
   const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
@@ -26,8 +23,10 @@ function App() {
   const [drone, setDrone] = useState();
   const [users, setUsers] = useState();
 
+
+
   useEffect(() => {
-    const drone = new window.Scaledrone("JGmqrCsbmbemwbQe", {
+    const drone = new window.Scaledrone("HhzMgDBJ1k0FbI05", {
       data: user,
     });
     setDrone(drone);
@@ -76,8 +75,7 @@ function App() {
   };
 
   return (
-    <body className="App">
-
+    <div className="App">
       <div className='menu'>
         <h1 className='app-name'>Chat App</h1>
         <h2 className='messages'>Participants</h2>
@@ -94,27 +92,14 @@ function App() {
       </div>
 
       <main className='chat-window'>
-        <div className='current-chat'>Chat Room</div>
-        <div className='chat'>
-          <div className='messages'>
-            <p>Hello</p>
-
-          </div>
-
-          <div className='my-message'>
-            <p>Hello</p>
-
-          </div>
-
-
+        <div className="App-header">
+          <h1>My Chat App</h1>
         </div>
-        <div className='input-wrap'>
-          <input type="text" />
-          <button><img src={enter} alt="" /></button>
-        </div>
+        <Message messages={messages} users={users} />
+        <Input onSendMessage={onSendMessage} />
       </main>
+    </div>
 
-    </body>
   );
 }
 
