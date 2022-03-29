@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
-import Input from "./Components/Input";
-import Message from "./Components/Message";
-import nouns from "./Components/Data/nouns";
-import adjectives from "./Components/Data/adjectives";
+import nouns from "./components/data/nouns";
+import adjectives from "./components/data/adjectives";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-function randomName() {
+import Login from "./components/views/Login"
+import Index from "./components/views/Chat";
+
+export const UserContext = React.createContext()
+
+
+/* function randomName() {
   const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
   const noun = nouns[Math.floor(Math.random() * nouns.length)];
   return adjective + noun;
@@ -12,12 +18,15 @@ function randomName() {
 
 function randomColor() {
   return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
-}
+} */
 
 function App() {
+
+  const [myUsers, setMyUsers] = useState([])
+
   const [user, setUser] = useState({
-    username: randomName(),
-    randomColor: randomColor()
+    username: "randomName()",
+    randomColor: "randomColor()"
   });
   const [messages, setMessages] = useState([]);
   const [drone, setDrone] = useState();
@@ -75,31 +84,17 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className='menu'>
-        <h1 className='app-name'>Chat App</h1>
-        <h2 className='messages'>Participants</h2>
-        <div className='participants'>
-          <div className='chatter'>
-            <div className='random-color'></div>
-            <div className='chatter-name'>Ivo</div>
-          </div>
-          <div className='chatter'>
-            <div className='random-color'></div>
-            <div className='chatter-name'>Karlo</div>
-          </div>
-        </div>
-      </div>
+    <>
+      <Router>
 
-      <main className='chat-window'>
-        <div className="App-header">
-          <h1>My Chat App</h1>
-        </div>
-        <Message messages={messages} users={users} />
-        <Input onSendMessage={onSendMessage} />
-      </main>
-    </div>
+        <Routes>
+          <Route path='/Login' element={<Login />} />
+          <Route path='/' element={<Index />} />
+        </Routes>
 
+
+      </Router>
+    </>
   );
 }
 

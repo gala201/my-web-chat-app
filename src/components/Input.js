@@ -21,7 +21,7 @@ const Input = ({ onSendMessage }) => {
           onChange={(e) => onChange(e)}
           value={textInputs}
           type="text"
-          placeholder="Enter your message and press ENTER"
+          placeholder="Start a new message"
         />
         <button><img src={enter} alt="" /></button>
       </form>
