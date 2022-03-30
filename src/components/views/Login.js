@@ -4,15 +4,17 @@ import Anon from "../assets/avatars/anon.svg"
 
 import { useState, useEffect, useContext } from "react";
 import React from "react";
-import { UserContext } from "../../App";
+import { UsersContext } from "../../App";
 
 
 import '../../styles/styles.css'
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
 
 
+    const { users, setUsers } = useContext(UsersContext);
 
     const [user, setUser] = useState({
         username: "",
@@ -34,6 +36,25 @@ const Login = () => {
 
     }
 
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        setUsers(previous => ({
+            ...previous, user
+        }))
+
+
+    }
+
+    useEffect(() => {
+
+        console.log(users);
+
+    }, [users])
+
+
     return (
         <div className="landing-page">
             <h1 className="header">Chat App</h1>
@@ -42,17 +63,17 @@ const Login = () => {
                 an avatar</h2>
 
             <h5>Choose one from existing avatars</h5>
+            <form action="" onSubmit={handleSubmit}>
+                <input className="name" minLength={3} type="text" name="username" placeholder="Your chat name" value={user.username} onChange={(e) => handleInput(e)} />
+                <div></div>
+                <div className="avatars">
+                    <img src={Astronaut} alt="astronaut" />
+                    <img src={Ninja} alt="ninja" />
+                    <img src={Anon} alt="anon" />
+                </div>
 
-            <input className="name" type="text" name="username" placeholder="Your chat name" value={user.username} onChange={(e) => handleInput(e)} />
-
-            <div className="avatars">
-                <img src={Astronaut} alt="astronaut" />
-                <img src={Ninja} alt="ninja" />
-                <img src={Anon} alt="anon" />
-            </div>
-
-            <button className="login-button">OK</button>
-
+                <button type="submit" className="login-button">OK</button>
+            </form>
 
         </div>
     )

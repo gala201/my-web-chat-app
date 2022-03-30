@@ -1,8 +1,11 @@
 import React, { useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { UsersContext } from "../App";
 
 const Message = ({ messages, users }) => {
   console.log(messages)
+
+
 
   return (
     <div>
@@ -18,6 +21,7 @@ const Message = ({ messages, users }) => {
             <div className="Message-content">
               <div className="username">{message.username}</div>
               <div className="text">{message.text}</div>
+              <div>{message.hour}:{message.minutes}</div>
             </div>
 
           </div>

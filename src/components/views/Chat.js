@@ -5,12 +5,12 @@ import nouns from "../data/nouns";
 import adjectives from "../data/adjectives";
 import React from "react";
 import "../../index.css"
-import { UserContext } from "../../App";
+import { UsersContext } from "../../App";
 
 import Login from "../views/Login"
 
 
-/* function randomName() {
+function randomName() {
     const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
     const noun = nouns[Math.floor(Math.random() * nouns.length)];
     return adjective + noun;
@@ -18,20 +18,20 @@ import Login from "../views/Login"
 
 function randomColor() {
     return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
-} */
+} 
 
 const Chat = () => {
 
 
     const [user, setUser] = useState({
-        username: "randomName()",
-        randomColor: "randomColor()"
+        username: randomName(),
+        randomColor: randomColor()
     });
     const [messages, setMessages] = useState([]);
     const [drone, setDrone] = useState();
-    const [users, setUsers] = useState();
+    const {users, setUsers} = useContext(UsersContext);
 
-
+    console.log(users);
 
     useEffect(() => {
         const drone = new window.Scaledrone("HhzMgDBJ1k0FbI05", {
@@ -65,9 +65,14 @@ const Chat = () => {
                 const chatUserID = chatUser.id;
                 const userColor = chatUser.clientData.randomColor
 
+                const date = new Date()
+                const hour = date.getHours()
+                const minutes = date.getMinutes()
+                
+
                 setMessages((oldArray) => [
                     ...oldArray,
-                    { text, username, userColor, chatUserID, user },
+                    { text, username, userColor, chatUserID, user, hour, minutes },
                 ]);
             });
         });
@@ -82,8 +87,11 @@ const Chat = () => {
         }
     };
 
+
+
     return (
         <>
+        
             <div className="App">
                 <div className='menu'>
                     <h1 className='app-name'>Chat App</h1>
@@ -91,7 +99,7 @@ const Chat = () => {
                     <div className='participants'>
                         <div className='chatter'>
                             <div className='random-color'></div>
-                            <div className='chatter-name'>Ivo</div>
+                            <div className='chatter-name'>{user.username}</div>
                         </div>
                         <div className='chatter'>
                             <div className='random-color'></div>
