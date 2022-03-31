@@ -13,17 +13,18 @@ function randomColor() {
   return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
 }
 
+
+
 function App() {
 
   const [user, setUser] = useState({
     username: "",
     randomColor: randomColor()
-  });
+  })
+
   const [messages, setMessages] = useState([]);
   const [drone, setDrone] = useState();
-  const [users, setUsers] = useState([{
-    username: "drasko"
-  }]);
+  const [users, setUsers] = useState();
 
   console.log(user);
   console.log(users);
@@ -35,7 +36,7 @@ function App() {
   return (
     <>
       <Router>
-        <UsersContext.Provider value={{ users, setUsers }}>
+        <UsersContext.Provider value={{ user, setUser }}>
 
           <Routes>
             <Route path='/' element={<Login />} />

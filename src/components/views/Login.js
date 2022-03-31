@@ -12,18 +12,13 @@ import { Link } from "react-router-dom";
 import { UsersContext } from "../../App";
 
 
-function randomColor() {
-    return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
-}
+
 
 const Login = () => {
 
-    const { users, setUsers } = useContext(UsersContext)
+    const { user, setUser } = useContext(UsersContext)
 
-    const [user, setUser] = useState({
-        username: "",
-        randomColor: randomColor()
-    })
+
 
     useEffect(() => {
         console.log(user);
@@ -43,26 +38,15 @@ const Login = () => {
         }))
 
         console.log(user);
-        console.log(users);
+
 
     }
 
 
 
-    const handleSubmit = () => {
 
 
-        setUsers(previous => [
-            ...previous, user
-        ])
 
-    }
-
-    useEffect(() => {
-
-        console.log(users);
-
-    }, [users])
 
 
     return (
@@ -81,7 +65,7 @@ const Login = () => {
                 <img src={Anon} alt="anon" />
             </div>
 
-            <button type="submit" onClick={handleSubmit} className="login-button">OK</button>
+            <button type="submit" className="login-button">OK</button>
             <Link to="/chat">Chat</Link>
 
 

@@ -22,14 +22,11 @@ function randomColor() {
 
 const Chat = () => {
 
+    const { user, setUser } = useContext(UsersContext)
 
-    const [user, setUser] = useState({
-        username: randomName(),
-        randomColor: randomColor()
-    });
     const [messages, setMessages] = useState([]);
     const [drone, setDrone] = useState();
-    const { users, setUsers } = useContext(UsersContext);
+    const [users, setUsers] = useState();
 
     console.log(users);
 
