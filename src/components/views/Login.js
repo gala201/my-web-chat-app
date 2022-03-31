@@ -4,22 +4,32 @@ import Anon from "../assets/avatars/anon.svg"
 
 import { useState, useEffect, useContext } from "react";
 import React from "react";
-import { UsersContext } from "../../App";
+
 
 
 import '../../styles/styles.css'
 import { Link } from "react-router-dom";
+import { UsersContext } from "../../App";
 
+
+function randomColor() {
+    return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
+}
 
 const Login = () => {
 
-
-    const { users, setUsers } = useContext(UsersContext);
+    const { users, setUsers } = useContext(UsersContext)
 
     const [user, setUser] = useState({
         username: "",
-        avatar: ""
-    });
+        randomColor: randomColor()
+    })
+
+    useEffect(() => {
+        console.log(user);
+    }, [user])
+
+
 
 
 
@@ -33,18 +43,18 @@ const Login = () => {
         }))
 
         console.log(user);
+        console.log(users);
 
     }
 
 
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = () => {
 
-        setUsers(previous => ({
+
+        setUsers(previous => [
             ...previous, user
-        }))
-
+        ])
 
     }
 
@@ -58,25 +68,29 @@ const Login = () => {
     return (
         <div className="landing-page">
             <h1 className="header">Chat App</h1>
-
             <h2>First type your chat name and pick
                 an avatar</h2>
 
             <h5>Choose one from existing avatars</h5>
-            <form action="" onSubmit={handleSubmit}>
-                <input className="name" minLength={3} type="text" name="username" placeholder="Your chat name" value={user.username} onChange={(e) => handleInput(e)} />
-                <div></div>
-                <div className="avatars">
-                    <img src={Astronaut} alt="astronaut" />
-                    <img src={Ninja} alt="ninja" />
-                    <img src={Anon} alt="anon" />
-                </div>
 
-                <button type="submit" className="login-button">OK</button>
-            </form>
+            <input className="name" minLength={3} type="text" name="username" placeholder="Your chat name" value={user.username} onChange={(e) => handleInput(e)} />
+            <div></div>
+            <div className="avatars">
+                <img src={Astronaut} alt="astronaut" />
+                <img src={Ninja} alt="ninja" />
+                <img src={Anon} alt="anon" />
+            </div>
+
+            <button type="submit" onClick={handleSubmit} className="login-button">OK</button>
+            <Link to="/chat">Chat</Link>
+
+
+
 
         </div>
     )
+
+
 }
 
 export default Login

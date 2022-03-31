@@ -18,7 +18,7 @@ function randomName() {
 
 function randomColor() {
     return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
-} 
+}
 
 const Chat = () => {
 
@@ -29,7 +29,7 @@ const Chat = () => {
     });
     const [messages, setMessages] = useState([]);
     const [drone, setDrone] = useState();
-    const {users, setUsers} = useContext(UsersContext);
+    const { users, setUsers } = useContext(UsersContext);
 
     console.log(users);
 
@@ -68,7 +68,7 @@ const Chat = () => {
                 const date = new Date()
                 const hour = date.getHours()
                 const minutes = date.getMinutes()
-                
+
 
                 setMessages((oldArray) => [
                     ...oldArray,
@@ -91,7 +91,8 @@ const Chat = () => {
 
     return (
         <>
-        
+
+
             <div className="App">
                 <div className='menu'>
                     <h1 className='app-name'>Chat App</h1>
