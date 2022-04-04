@@ -18,11 +18,12 @@ function randomColor() {
 
 function App() {
 
+  // emoji picker react
+
   const [user, setUser] = useState({
     username: "Mirko",
     randomColor: randomColor(),
     avatar: '',
-    avatarId: 0
   })
 
   const [login, setLogin] = useState(false)
@@ -31,8 +32,9 @@ function App() {
   const [drone, setDrone] = useState();
   const [users, setUsers] = useState();
 
-  console.log(user);
-  console.log(users);
+  const [members, setMembers] = useState([]);
+
+  
 
   useEffect(() => {
     if (login) {
@@ -51,8 +53,6 @@ function App() {
           console.log("Error on connecting", error);
         }
 
-
-
         const chatRoom = drone.subscribe("observable-room");
 
         chatRoom.on("open", (error) => {
@@ -61,6 +61,20 @@ function App() {
           }
           // Connected to room
         });
+
+        chatRoom.on('members', m => {
+          setMembers(m)
+        })
+
+        chatRoom.on('member_join', member => {
+          setMembers(previous => [...previous, member])
+        })
+
+        chatRoom.on('member_leave', ({id}) => {
+          setMembers(previous => previous.filter(v => v.id !== id))
+          /* const index = members.findIndex(member => member.id === id) */
+          
+        })
 
         chatRoom.on("data", (text, chatUser) => {
           setUsers(drone.clientId);
@@ -93,6 +107,9 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    console.log(members);
+  }, [members])
 
 
 
@@ -107,7 +124,8 @@ function App() {
             <Route path='/chat' element={<Chat
               messages={messages}
               users={users}
-              onSendMessage={onSendMessage} />} />
+              onSendMessage={onSendMessage} />} 
+              members={members}/>
           </Routes>
 
         </UsersContext.Provider>

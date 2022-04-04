@@ -12,7 +12,7 @@ import { UsersContext } from "../../App";
 
 
 
-const Chat = ({ messages, users, onSendMessage }) => {
+const Chat = ({ members, messages, users, onSendMessage }) => {
 
     const { user, setUser } = useContext(UsersContext)
 
@@ -27,12 +27,15 @@ const Chat = ({ messages, users, onSendMessage }) => {
                     <div className='participants'>
                         <div className='chatter'>
                             <div className='random-color'></div>
-                            <div className='chatter-name'>{user.username}</div>
-                            <div className="display-avatar"><img src={user.avatar} alt="" /></div>
-                        </div>
-                        <div className='chatter'>
-                            <div className='random-color'></div>
-                            <div className='chatter-name'>Karlo</div>
+                           {/*  <div className='chatter-name'>{user.username}</div>
+                            <div className="display-avatar"><img src={user.avatar} alt="" /></div> */}
+                            {
+                                members?.map(v => {
+                                    return(
+                                        <div key={v.id}>{v.clientData.username}</div>
+                                    )
+                                })
+                            }
                         </div>
                     </div>
                 </div>
