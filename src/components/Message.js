@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { UsersContext } from "../App";
+
 
 const Message = ({ messages, users }) => {
   console.log(messages)
@@ -10,7 +10,7 @@ const Message = ({ messages, users }) => {
   return (
     <div>
       <ul className="Messages-list">
-        {messages.map((message) => (
+        {messages?.map((message) => (
           <div key={messages.indexOf(message)} className={(message.chatUserID === users)
             ? "Messages-message"
             : "Messages-message currentMember"}>

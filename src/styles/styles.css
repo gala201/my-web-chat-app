@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     font-family: 'Axiforma', sans-serif;
-    
+
 }
 
 h1.header {
@@ -20,19 +20,19 @@ h1.header {
     margin-bottom: 120px;
 }
 
-h2{
+h2 {
     font-family: 'Roboto Slab';
-font-size: 36px;
-font-style: normal;
-font-weight: 400;
-line-height: 36px;
-letter-spacing: 0em;
-text-align: center;
-margin-bottom: 24px;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-bottom: 24px;
 
 }
 
-h5{
+h5 {
     font-family: 'Roboto';
     font-size: 16px;
     font-style: normal;
@@ -43,13 +43,7 @@ h5{
     margin-bottom: 50px;
 }
 
-form{
-    display: block;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 133px;
-}
+
 
 input.name {
     height: 39px;
@@ -63,9 +57,43 @@ div.avatars {
     display: flex;
 }
 
+
 div.avatars img {
-    margin: 33px;
+    cursor: pointer;
+    padding: 25px;
+    transition: 0.3s box-shadow, 0.3s border-color;
+    border-radius: 13px;
+    border: 1px solid transparent;
 }
+
+div.avatars img:hover {
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.16);
+}
+
+div.avatars img.active {
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.16);
+}
+
+/* .item {
+    cursor: pointer;
+    padding: 25px;
+    transition: 0.3s box-shadow, 0.3s border-color;
+    border-radius: 13px;
+    border: 1px solid transparent;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &.active,
+    &:hover {
+        box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.16);
+    }
+
+    &.active {
+        border-color: #21978B;
+    }
+} */
 
 .login-button {
     height: 61px;
@@ -74,5 +102,4 @@ div.avatars img {
     padding: 18px, 48px, 18px, 48px;
     background-color: #21978B;
     margin-top: 70px;
-  }  
-
+}

@@ -1,9 +1,9 @@
-body{
+body {
   margin: 0;
   padding: 0;
 }
 
-.App{
+.App {
   display: flex;
   font-family: 'Axiforma', sans-serif;
   width: 100vw;
@@ -38,6 +38,12 @@ div.menu .participants .chatter {
   margin-bottom: 24px;
 }
 
+div.menu .participants .chatter .display-avatar {
+  width: 36px;
+  height: 36px;
+  background-color: #21978B;
+}
+
 div.menu .participants .chatter .chatter-name {
   margin-top: 6px;
 }
@@ -56,7 +62,7 @@ div.menu .participants .chatter .random-color {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  
+
   position: relative;
 }
 
@@ -95,11 +101,11 @@ div.menu .participants .chatter .random-color {
   display: inline-block;
 }
 
-.currentMember > .Message-content {
+.currentMember>.Message-content {
   align-items: flex-end;
 }
 
-.Messages-message > .avatar {
+.Messages-message>.avatar {
   height: 35px;
   width: 35px;
   border-radius: 50%;
@@ -107,7 +113,7 @@ div.menu .participants .chatter .random-color {
   margin: 0 10px -10px;
 }
 
-.Message-content > .username {
+.Message-content>.username {
   display: block;
   color: #141414;
   padding-bottom: 4px;
@@ -119,7 +125,7 @@ div.menu .participants .chatter .random-color {
 
 }
 
-.Message-content > .text {
+.Message-content>.text {
   padding: 10px;
   max-width: 400px;
   margin: 0;
@@ -131,7 +137,7 @@ div.menu .participants .chatter .random-color {
   padding: 15px 55px;
 }
 
-.currentMember > .Message-content .text {
+.currentMember>.Message-content .text {
   background-color: #F5F5F5;
   border-top-left-radius: 0px;
   border-top-right-radius: 12px;
@@ -139,7 +145,7 @@ div.menu .participants .chatter .random-color {
   color: #141414;
 }
 
-form {
+form.input-form {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -151,11 +157,12 @@ form {
 
 }
 
-input {
+input.chat-input {
   padding: 8px 20px;
   font-size: 16px;
   border-radius: 24px;
-  border: 1px solid #E8E8E8;;
+  border: 1px solid #E8E8E8;
+  ;
   flex-grow: 1;
   font-size: 14px;
   font-weight: 400;
@@ -176,6 +183,3 @@ button {
   border-radius: 8px;
   margin-left: 10px;
 }
-
-
-

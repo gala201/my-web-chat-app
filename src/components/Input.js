@@ -16,12 +16,13 @@ const Input = ({ onSendMessage }) => {
 
   return (
     <div className="Input">
-      <form onSubmit={(e) => onSubmit(e)}>
+      <form onSubmit={(e) => onSubmit(e)} className="input-form">
         <input
           onChange={(e) => onChange(e)}
           value={textInputs}
           type="text"
           placeholder="Start a new message"
+          className="chat-input"
         />
         <button><img src={enter} alt="" /></button>
       </form>

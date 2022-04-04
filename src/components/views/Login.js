@@ -10,15 +10,18 @@ import React from "react";
 import '../../styles/styles.css'
 import { Link } from "react-router-dom";
 import { UsersContext } from "../../App";
+import Avatar from "../data/avatars/Avatar";
 
 
 
 
-const Login = () => {
+const Login = ({ setLogin }) => {
 
     const { user, setUser } = useContext(UsersContext)
 
-
+    const avatar1 = Astronaut
+    const avatar2 = Ninja
+    const avatar3 = Anon
 
     useEffect(() => {
         console.log(user);
@@ -43,9 +46,19 @@ const Login = () => {
     }
 
 
+    const handleImage = (id) => {
 
+        setUser(previous => ({
+            ...previous, avatar: id
+        }))
 
+    }
 
+    const handleLogin = () => {
+        if (user.username.length > 3 && user.avatar) {
+            setLogin(true)
+        }
+    }
 
 
 
@@ -58,15 +71,20 @@ const Login = () => {
             <h5>Choose one from existing avatars</h5>
 
             <input className="name" minLength={3} type="text" name="username" placeholder="Your chat name" value={user.username} onChange={(e) => handleInput(e)} />
-            <div></div>
+
             <div className="avatars">
-                <img src={Astronaut} alt="astronaut" />
-                <img src={Ninja} alt="ninja" />
-                <img src={Anon} alt="anon" />
+
+
+                <img src={Astronaut} alt="Astronaut" onClick={() => handleImage(avatar1)} />
+
+                <img src={Ninja} alt="Ninja" onClick={() => handleImage(avatar2)} />
+                <img src={Anon} alt="Anon" onClick={() => handleImage(avatar3)} />
             </div>
 
-            <button type="submit" className="login-button">OK</button>
-            <Link to="/chat">Chat</Link>
+
+            <Link to="/chat">
+                <button type="submit" className="login-button" onClick={handleLogin} disabled={user.username.length < 3 ? true : false}>OK</button>
+            </Link>
 
 
 
