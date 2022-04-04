@@ -15,6 +15,8 @@ import { UsersContext } from "../../App";
 const Chat = ({ members, messages, users, onSendMessage }) => {
 
     const { user, setUser } = useContext(UsersContext)
+    console.log("ffff");
+    console.log(members);
 
     return (
         <>
@@ -31,6 +33,7 @@ const Chat = ({ members, messages, users, onSendMessage }) => {
                             <div className="display-avatar"><img src={user.avatar} alt="" /></div> */}
                             {
                                 members?.map(v => {
+                                    console.log(v);
                                     return(
                                         <div key={v.id}>{v.clientData.username}</div>
                                     )

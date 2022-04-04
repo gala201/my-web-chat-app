@@ -124,8 +124,10 @@ function App() {
             <Route path='/chat' element={<Chat
               messages={messages}
               users={users}
-              onSendMessage={onSendMessage} />} 
-              members={members}/>
+              onSendMessage={onSendMessage}
+              members={members}
+              />}
+            />
           </Routes>
 
         </UsersContext.Provider>
