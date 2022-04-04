@@ -19,7 +19,7 @@ function randomColor() {
 function App() {
 
   const [user, setUser] = useState({
-    username: "",
+    username: "Mirko",
     randomColor: randomColor(),
     avatar: '',
     avatarId: 0
@@ -35,49 +35,54 @@ function App() {
   console.log(users);
 
   useEffect(() => {
-    const drone = new window.Scaledrone("HhzMgDBJ1k0FbI05", {
-      data: user,
-    });
-    setDrone(drone);
-    // eslint-disable-next-line
-  }, []);
-  if (drone) {
-    drone.on("open", (error) => {
-      if (error) {
-        console.log("Error on connecting", error);
-      }
+    if (login) {
+      const drone = new window.Scaledrone("HhzMgDBJ1k0FbI05", {
+        data: user,
+      });
+      setDrone(drone);
+    }
+  }, [login]);
+  // eslint-disable-next-line
 
-
-
-      const chatRoom = drone.subscribe("observable-room");
-
-      chatRoom.on("open", (error) => {
+  useEffect(() => {
+    if (drone) {
+      drone.on("open", (error) => {
         if (error) {
-          return console.error(error);
+          console.log("Error on connecting", error);
         }
-        // Connected to room
+
+
+
+        const chatRoom = drone.subscribe("observable-room");
+
+        chatRoom.on("open", (error) => {
+          if (error) {
+            return console.error(error);
+          }
+          // Connected to room
+        });
+
+        chatRoom.on("data", (text, chatUser) => {
+          setUsers(drone.clientId);
+
+
+          const username = chatUser.clientData.username;
+          const chatUserID = chatUser.id;
+          const userColor = chatUser.clientData.randomColor
+
+          const date = new Date()
+          const hour = date.getHours()
+          const minutes = date.getMinutes()
+
+
+          setMessages((oldArray) => [
+            ...oldArray,
+            { text, username, userColor, chatUserID, user, hour, minutes },
+          ]);
+        });
       });
-
-      chatRoom.on("data", (text, chatUser) => {
-        setUsers(drone.clientId);
-
-
-        const username = chatUser.clientData.username;
-        const chatUserID = chatUser.id;
-        const userColor = chatUser.clientData.randomColor
-
-        const date = new Date()
-        const hour = date.getHours()
-        const minutes = date.getMinutes()
-
-
-        setMessages((oldArray) => [
-          ...oldArray,
-          { text, username, userColor, chatUserID, user, hour, minutes },
-        ]);
-      });
-    });
-  }
+    }
+  }, [drone])
 
   const onSendMessage = (message) => {
     if (message) {
@@ -99,7 +104,10 @@ function App() {
 
           <Routes>
             <Route path='/' element={<Login setLogin={setLogin} />} />
-            <Route path='/chat' element={<Chat />} />
+            <Route path='/chat' element={<Chat
+              messages={messages}
+              users={users}
+              onSendMessage={onSendMessage} />} />
           </Routes>
 
         </UsersContext.Provider>

@@ -1,14 +1,13 @@
 import { useState, useEffect, useContext } from "react";
 import Input from "../Input";
 import Message from "../Message";
-import nouns from "../data/nouns";
-import adjectives from "../data/adjectives";
+
 import React from "react";
 import "../../index.css"
 import { UsersContext } from "../../App";
-import Astronaut from "../assets/avatars/astronaut.svg"
 
-import Login from "../views/Login"
+
+
 
 
 
