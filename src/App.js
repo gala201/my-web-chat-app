@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import nouns from "./components/data/nouns";
-import adjectives from "./components/data/adjectives";
+
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Login from "./components/views/Login"
 import Chat from "./components/views/Chat";
+
+import './styles/styles.scss'
 
 
 export const UsersContext = React.createContext()
@@ -34,7 +35,7 @@ function App() {
 
   const [members, setMembers] = useState([]);
 
-  
+
 
   useEffect(() => {
     if (login) {
@@ -70,10 +71,10 @@ function App() {
           setMembers(previous => [...previous, member])
         })
 
-        chatRoom.on('member_leave', ({id}) => {
+        chatRoom.on('member_leave', ({ id }) => {
           setMembers(previous => previous.filter(v => v.id !== id))
           /* const index = members.findIndex(member => member.id === id) */
-          
+
         })
 
         chatRoom.on("data", (text, chatUser) => {
@@ -126,7 +127,7 @@ function App() {
               users={users}
               onSendMessage={onSendMessage}
               members={members}
-              />}
+            />}
             />
           </Routes>
 

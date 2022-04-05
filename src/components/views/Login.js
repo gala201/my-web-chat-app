@@ -7,10 +7,9 @@ import React from "react";
 
 
 
-import '../../styles/styles.css'
 import { Link } from "react-router-dom";
 import { UsersContext } from "../../App";
-import Avatar from "../data/avatars/Avatar";
+
 
 
 

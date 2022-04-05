@@ -3,7 +3,6 @@ import Input from "../Input";
 import Message from "../Message";
 
 import React from "react";
-import "../../index.css"
 import { UsersContext } from "../../App";
 
 
@@ -29,12 +28,12 @@ const Chat = ({ members, messages, users, onSendMessage }) => {
                     <div className='participants'>
                         <div className='chatter'>
                             <div className='random-color'></div>
-                           {/*  <div className='chatter-name'>{user.username}</div>
+                            {/*  <div className='chatter-name'>{user.username}</div>
                             <div className="display-avatar"><img src={user.avatar} alt="" /></div> */}
                             {
                                 members?.map(v => {
                                     console.log(v);
-                                    return(
+                                    return (
                                         <div key={v.id}>{v.clientData.username}</div>
                                     )
                                 })
