@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import ReactScrollableFeed from "react-scrollable-feed";
+
 
 
 const Message = ({ messages, users }) => {
@@ -10,7 +10,7 @@ const Message = ({ messages, users }) => {
 
   return (
     <div className="overflow">
-      <ReactScrollableFeed className="Messages-list">
+      <ul className="Messages-list">
         {messages?.map((message) => (
           <div key={messages.indexOf(message)} className={(message.chatUserID === users)
             ? "Messages-message"
@@ -24,7 +24,7 @@ const Message = ({ messages, users }) => {
 
           </div>
         ))}
-      </ReactScrollableFeed>
+      </ul>
     </div>
   );
 };

@@ -159,23 +159,37 @@ body {
             box-sizing: border-box;
             background-color: #21978B;
             color: white;
+            position: sticky;
+            top: 0;
 
         }
 
         .overflow {
             overflow: hidden;
             overflow-y: scroll;
+            width: 768px;
+            max-width: 100%;
+            margin: 0 auto;
+            height: 100%;
+            padding: 0 16px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            flex-grow: 1;
+            padding-top: 60px;
 
 
             .Messages-list {
                 padding: 20px 0;
-                max-width: 900px;
+
                 width: 100%;
-                margin: 0 auto;
+                margin-top: auto;
                 list-style: none;
                 padding-left: 0;
-                flex-grow: 1;
-                overflow: auto;
+                /*                 flex-grow: 1;
+                overflow: auto; */
 
                 .Messages-message {
                     display: flex;
@@ -250,8 +264,11 @@ body {
         }
 
         .input {
-            height: 300px;
+            height: 100px;
+            margin-top: auto;
             background-color: #fff;
+            position: sticky;
+            bottom: 0;
 
             form.input-form {
                 display: flex;
