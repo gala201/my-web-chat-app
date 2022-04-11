@@ -15,7 +15,7 @@ const Input = ({ onSendMessage }) => {
   }
 
   return (
-    <div className="Input">
+    <div className="input">
       <form onSubmit={(e) => onSubmit(e)} className="input-form">
         <input
           onChange={(e) => onChange(e)}

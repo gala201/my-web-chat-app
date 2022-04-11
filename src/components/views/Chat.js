@@ -26,19 +26,20 @@ const Chat = ({ members, messages, users, onSendMessage }) => {
                     <h1 className='app-name'>Chat App</h1>
                     <h2 className='messages'>Participants</h2>
                     <div className='participants'>
-                        <div className='chatter'>
-                            <div className='random-color'></div>
-                            {/*  <div className='chatter-name'>{user.username}</div>
-                            <div className="display-avatar"><img src={user.avatar} alt="" /></div> */}
-                            {
-                                members?.map(v => {
-                                    console.log(v);
-                                    return (
-                                        <div key={v.id}>{v.clientData.username}</div>
-                                    )
-                                })
-                            }
-                        </div>
+
+                        {
+                            members?.map(v => {
+                                console.log(v);
+                                return (
+                                    <div className='chatter'>
+                                        <img src={v.clientData.avatar} className="chatter-avatar" alt="" />
+                                        <div key={v.id}>{v.clientData.username} </div>
+                                    </div>
+
+                                )
+                            })
+                        }
+
                     </div>
                 </div>
 

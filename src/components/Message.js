@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import ReactScrollableFeed from "react-scrollable-feed";
 
 
 const Message = ({ messages, users }) => {
@@ -8,16 +9,13 @@ const Message = ({ messages, users }) => {
 
 
   return (
-    <div>
-      <ul className="Messages-list">
+    <div className="overflow">
+      <ReactScrollableFeed className="Messages-list">
         {messages?.map((message) => (
           <div key={messages.indexOf(message)} className={(message.chatUserID === users)
             ? "Messages-message"
             : "Messages-message currentMember"}>
-            <span
-              className="avatar"
-              style={{ backgroundColor: `${message.userColor}` }}
-            />
+            <img src={message.userColor} className="avatar" alt="" />
             <div className="Message-content">
               <div className="username">{message.username}</div>
               <div className="text">{message.text}</div>
@@ -26,7 +24,7 @@ const Message = ({ messages, users }) => {
 
           </div>
         ))}
-      </ul>
+      </ReactScrollableFeed>
     </div>
   );
 };

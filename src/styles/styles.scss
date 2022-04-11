@@ -111,16 +111,22 @@ body {
 
         .participants {
             margin-left: 24px;
+            display: flex;
+            flex-direction: column;
 
             .chatter {
                 font-weight: 700;
                 display: flex;
                 margin-bottom: 24px;
+                align-items: center;
 
-                .display-avatar {
-                    width: 36px;
-                    height: 36px;
-                    background-color: #21978B;
+                .chatter-avatar {
+                    width: 35px;
+                    height: 35px;
+                    border: #141414 solid 1px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+
                 }
 
                 .chatter-name {
@@ -153,128 +159,142 @@ body {
             box-sizing: border-box;
             background-color: #21978B;
             color: white;
+
         }
 
-
-        .Messages-list {
-            padding: 20px 0;
-            max-width: 900px;
-            width: 100%;
-            margin: 0 auto;
-            list-style: none;
-            padding-left: 0;
-            flex-grow: 1;
-            overflow: auto;
-
-            .Messages-message {
-                display: flex;
-                flex-direction: row-reverse;
-                margin-top: 10px;
-
-                .Message-content {
-                    display: inline-block;
-
-                    .username {
-                        display: block;
-                        color: #141414;
-                        padding-bottom: 4px;
-                        font-weight: 600;
-                        font-size: 16px;
-                        line-height: 26px;
-                        letter-spacing: 0em;
-                        text-align: left;
-
-                    }
-
-                    .text {
-                        padding: 10px;
-                        max-width: 400px;
-                        margin: 0;
-                        border-radius: 12px;
-                        border-top-right-radius: 0px;
-                        background-color: #21978B;
-                        color: white;
-                        display: inline-block;
-                        padding: 15px 55px;
-                    }
-                }
-
-                .avatar {
-                    height: 35px;
-                    width: 35px;
-                    border-radius: 50%;
-                    display: inline-block;
-                    margin: 0 10px -10px;
-                }
-            }
-
-            .currentMember {
-                /* justify-content: flex-end; */
-                flex-direction: row;
-                text-align: right;
-
-                .Message-content {
-                    align-items: flex-end;
-
-                    .text {
-                        background-color: #F5F5F5;
-                        border-top-left-radius: 0px;
-                        border-top-right-radius: 12px;
-                        padding: 19px 38px;
-                        color: #141414;
-                    }
+        .overflow {
+            overflow: hidden;
+            overflow-y: scroll;
 
 
-                }
-
-                .avatar {
-                    height: 35px;
-                    width: 35px;
-                    border-radius: 50%;
-                    display: inline-block;
-                    margin: 0 10px -10px;
-                }
-            }
-        }
-
-        form.input-form {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            max-width: 900px;
-            margin: 0 auto 40px;
-            position: absolute;
-            bottom: 0;
-            left: 360px;
-
-            input.chat-input {
-                padding: 8px 20px;
-                font-size: 16px;
-                border-radius: 24px;
-                border: 1px solid #E8E8E8;
-                ;
+            .Messages-list {
+                padding: 20px 0;
+                max-width: 900px;
+                width: 100%;
+                margin: 0 auto;
+                list-style: none;
+                padding-left: 0;
                 flex-grow: 1;
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 22px;
-                letter-spacing: 0em;
-                text-align: left;
+                overflow: auto;
 
+                .Messages-message {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    margin-top: 10px;
+
+                    .Message-content {
+                        display: inline-block;
+
+                        .username {
+                            display: block;
+                            color: #141414;
+                            padding-bottom: 4px;
+                            font-weight: 600;
+                            font-size: 16px;
+                            line-height: 26px;
+                            letter-spacing: 0em;
+                            text-align: left;
+
+                        }
+
+                        .text {
+                            padding: 10px;
+                            max-width: 400px;
+                            margin: 0;
+                            border-radius: 12px;
+                            border-top-right-radius: 0px;
+                            background-color: #21978B;
+                            color: white;
+                            display: inline-block;
+                            padding: 15px 55px;
+                        }
+                    }
+
+                    .avatar {
+                        height: 35px;
+                        width: 35px;
+                        border-radius: 50%;
+                        display: inline-block;
+                        margin: 0 10px -10px;
+                    }
+                }
+
+                .currentMember {
+                    /* justify-content: flex-end; */
+                    flex-direction: row;
+                    text-align: right;
+
+                    .Message-content {
+                        align-items: flex-end;
+
+                        .text {
+                            background-color: #F5F5F5;
+                            border-top-left-radius: 0px;
+                            border-top-right-radius: 12px;
+                            padding: 19px 38px;
+                            color: #141414;
+                        }
+
+
+                    }
+
+                    .avatar {
+                        height: 35px;
+                        width: 35px;
+                        border-radius: 50%;
+                        display: inline-block;
+                        margin: 0 10px -10px;
+                    }
+                }
             }
-
-            button {
-                width: 36px;
-                height: 36px;
-                padding: 5px 10px;
-                font-size: 16px;
-                background-color: white;
-                color: white;
-                border: none;
-                border-radius: 8px;
-                margin-left: 10px;
-            }
-
         }
+
+        .input {
+            height: 300px;
+            background-color: #fff;
+
+            form.input-form {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                max-width: 900px;
+                margin: 0 auto 40px;
+                position: absolute;
+                bottom: 0;
+                left: 360px;
+
+
+                input.chat-input {
+                    padding: 8px 20px;
+                    font-size: 16px;
+                    border-radius: 24px;
+                    border: 1px solid #E8E8E8;
+                    ;
+                    flex-grow: 1;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 22px;
+                    letter-spacing: 0em;
+                    text-align: left;
+
+                }
+
+                button {
+                    width: 36px;
+                    height: 36px;
+                    padding: 5px 10px;
+                    font-size: 16px;
+                    background-color: white;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    margin-left: 10px;
+                }
+
+            }
+        }
+
+
 
 
     }

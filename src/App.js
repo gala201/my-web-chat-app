@@ -22,7 +22,7 @@ function App() {
   // emoji picker react
 
   const [user, setUser] = useState({
-    username: "Mirko",
+    username: "",
     randomColor: randomColor(),
     avatar: '',
   })
@@ -83,7 +83,7 @@ function App() {
 
           const username = chatUser.clientData.username;
           const chatUserID = chatUser.id;
-          const userColor = chatUser.clientData.randomColor
+          const userColor = chatUser.clientData.avatar
 
           const date = new Date()
           const hour = date.getHours()

@@ -71,6 +71,7 @@ const Login = ({ setLogin }) => {
 
             <input className="name" minLength={3} type="text" name="username" placeholder="Your chat name" value={user.username} onChange={(e) => handleInput(e)} />
 
+
             <div className="avatars">
 
 
