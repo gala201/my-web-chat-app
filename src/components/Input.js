@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import enter from "./assets/enter.svg"
-import Picker from "emoji-picker-react";
+import EmojiPicker from "emoji-picker-react";
+import Picker from "./assets/EmojiPicker.svg"
 
 const Input = ({ onSendMessage }) => {
   const [textInputs, setTextInputs] = useState("");
+  const [showPicker, setShowPicker] = useState(false)
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const onEmojiClick = (event, emojiObject) => {
     setChosenEmoji(emojiObject);
+    setTextInputs(previous => previous + emojiObject.emoji)
   };
 
 
@@ -31,7 +34,10 @@ const Input = ({ onSendMessage }) => {
           placeholder="Start a new message"
           className="chat-input"
         />
-
+        <img src={Picker} onClick={() => setShowPicker(!showPicker)} alt="" />
+        {
+          showPicker && <EmojiPicker onEmojiClick={onEmojiClick} />
+        }
         <button><img src={enter} alt="" /></button>
       </form>
     </div>

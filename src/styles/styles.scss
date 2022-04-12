@@ -175,13 +175,13 @@ body {
             max-width: 100%;
             margin: 0 auto;
 
-            box-sizing: border-box;
+
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             align-items: flex-start;
             flex-grow: 1;
-            padding-top: 60px;
+
 
 
             .Messages-list {
@@ -269,47 +269,45 @@ body {
 
         .input {
             height: 100px;
-            margin-top: auto;
+            width: 100%;
+
             background-color: #fff;
             position: sticky;
             bottom: 0;
 
             form.input-form {
-                display: flex;
                 width: 100%;
-                justify-content: space-between;
-                max-width: 900px;
-                margin: 0 auto 40px;
-                position: absolute;
+                display: flex;
+                justify-content: center;
+
+                position: sticky;
                 bottom: 0;
-                left: 360px;
 
 
-                input.chat-input {
+
+                input {
                     padding: 8px 20px;
                     font-size: 16px;
                     border-radius: 24px;
                     border: 1px solid #E8E8E8;
-                    ;
-                    flex-grow: 1;
-                    font-size: 14px;
-                    font-weight: 400;
-                    line-height: 22px;
-                    letter-spacing: 0em;
-                    text-align: left;
+                    width: 60%;
+                }
 
+                img {
+                    width: 26px;
+                    height: 26px;
+                    margin-left: 5px;
                 }
 
                 button {
                     width: 36px;
                     height: 36px;
-                    padding: 5px 10px;
                     font-size: 16px;
                     background-color: white;
                     color: white;
                     border: none;
                     border-radius: 8px;
-                    margin-left: 10px;
+
                 }
 
             }
