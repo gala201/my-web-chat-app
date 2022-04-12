@@ -168,128 +168,119 @@ body {
 
         }
 
-        .overflow {
-
-            overflow: auto;
-            width: 1080px;
-            max-width: 100%;
-            margin: 0 auto;
-
-
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-start;
-            flex-grow: 1;
 
 
 
-            .Messages-list {
-                padding: 20px 0;
 
-                overflow-y: scroll;
-                width: 100%;
-                margin-top: auto;
-                list-style: none;
-                padding-left: 0;
-                /*                 flex-grow: 1;
+        .Messages-list {
+            flex: 1;
+            padding: 20px 0;
+            overflow-y: scroll;
+
+
+            list-style: none;
+            padding-left: 50px;
+            padding-right: 50px;
+            /*                 flex-grow: 1;
                 overflow: auto; */
 
-                .Messages-message {
-                    display: flex;
-                    flex-direction: row-reverse;
-                    margin-top: 10px;
+            .Messages-message {
+                display: flex;
+                flex-direction: row-reverse;
+                margin-top: 10px;
 
-                    .Message-content {
-                        display: inline-block;
+                .Message-content {
+                    display: inline-block;
 
-                        .username {
-                            display: block;
-                            color: #141414;
-                            padding-bottom: 4px;
-                            font-weight: 600;
-                            font-size: 16px;
-                            line-height: 26px;
-                            letter-spacing: 0em;
-                            text-align: left;
+                    .username {
+                        display: block;
+                        color: #141414;
+                        padding-bottom: 4px;
+                        font-weight: 600;
+                        font-size: 16px;
+                        line-height: 26px;
+                        letter-spacing: 0em;
+                        text-align: left;
 
-                        }
-
-                        .text {
-                            padding: 10px;
-                            max-width: 400px;
-                            margin: 0;
-                            border-radius: 12px;
-                            border-top-right-radius: 0px;
-                            background-color: #21978B;
-                            color: white;
-                            display: inline-block;
-                            padding: 15px 55px;
-                        }
                     }
 
-                    .avatar {
-                        height: 35px;
-                        width: 35px;
-                        border-radius: 50%;
+                    .text {
+                        padding: 10px;
+                        max-width: 400px;
+                        margin: 0;
+                        border-radius: 12px;
+                        border-top-right-radius: 0px;
+                        background-color: #21978B;
+                        color: white;
                         display: inline-block;
-                        margin: 0 10px -10px;
+                        padding: 15px 55px;
                     }
                 }
 
-                .currentMember {
-                    /* justify-content: flex-end; */
-                    flex-direction: row;
-                    text-align: right;
+                .avatar {
+                    height: 35px;
+                    width: 35px;
+                    border-radius: 50%;
+                    display: inline-block;
+                    margin: 0 10px -10px;
+                }
+            }
 
-                    .Message-content {
-                        align-items: flex-end;
+            .currentMember {
+                /* justify-content: flex-end; */
+                flex-direction: row;
+                text-align: right;
 
-                        .text {
-                            background-color: #F5F5F5;
-                            border-top-left-radius: 0px;
-                            border-top-right-radius: 12px;
-                            padding: 19px 38px;
-                            color: #141414;
-                        }
+                .Message-content {
+                    align-items: flex-end;
 
-
+                    .text {
+                        background-color: #F5F5F5;
+                        border-top-left-radius: 0px;
+                        border-top-right-radius: 12px;
+                        padding: 19px 38px;
+                        color: #141414;
                     }
 
-                    .avatar {
-                        height: 35px;
-                        width: 35px;
-                        border-radius: 50%;
-                        display: inline-block;
-                        margin: 0 10px -10px;
-                    }
+
+                }
+
+                .avatar {
+                    height: 35px;
+                    width: 35px;
+                    border-radius: 50%;
+                    display: inline-block;
+                    margin: 0 10px -10px;
                 }
             }
         }
 
-        .input-container {
-            height: 100px;
-            width: 100%;
 
+        .input-container {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 62px;
             background-color: #fff;
-            position: sticky;
-            bottom: 0;
+            border-top: 1px solid lightgray;
+
 
             position: relative;
 
-            .emoji-picker {
-                background-color: blueviolet;
-                position: absolute;
-                bottom: 400px;
+
+            img.emoji-image {
+                width: 24px;
+                height: 24px;
+                margin: 5px;
             }
 
             form.input-form {
-                width: 100%;
+                flex: 1;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                position: sticky;
-                bottom: 0;
+
 
 
 
@@ -299,16 +290,13 @@ body {
                     border-radius: 24px;
                     border: 1px solid #E8E8E8;
                     width: 60%;
-                    position: relative;
+
                 }
 
-                img.emoji-image {
-                    width: 24px;
-                    height: 24px;
-                    margin: 5px;
-                }
+
 
                 button {
+                    padding: 5px;
                     width: 36px;
                     height: 36px;
                     font-size: 16px;
@@ -318,6 +306,7 @@ body {
                     border-radius: 8px;
 
                 }
+
 
             }
         }

@@ -9,23 +9,23 @@ const Message = ({ messages, users }) => {
 
 
   return (
-    <div className="overflow">
-      <ul className="Messages-list">
-        {messages?.map((message) => (
-          <div key={messages.indexOf(message)} className={(message.chatUserID === users)
-            ? "Messages-message"
-            : "Messages-message currentMember"}>
-            <img src={message.userColor} className="avatar" alt="" />
-            <div className="Message-content">
-              <div className="username">{message.username}</div>
-              <div className="text">{message.text}</div>
-              <div>{message.hour}:{message.minutes}</div>
-            </div>
 
+    <ul className="Messages-list">
+      {messages?.map((message) => (
+        <div key={messages.indexOf(message)} className={(message.chatUserID === users)
+          ? "Messages-message"
+          : "Messages-message currentMember"}>
+          <img src={message.userColor} className="avatar" alt="" />
+          <div className="Message-content">
+            <div className="username">{message.username}</div>
+            <div className="text">{message.text}</div>
+            <div>{message.hour}:{message.minutes}</div>
           </div>
-        ))}
-      </ul>
-    </div>
+
+        </div>
+      ))}
+    </ul>
+
   );
 };
 

@@ -37,12 +37,13 @@ const Input = ({ onSendMessage }) => {
           placeholder="Start a new message"
           className="chat-input"
         />
-        <img src={Picker} className="emoji-image" onClick={() => setShowPicker(!showPicker)} alt="" />
-        {
-          showPicker && <EmojiPicker className="emoji-picker" onEmojiClick={onEmojiClick} />
-        }
+
         <button><img src={enter} alt="" /></button>
       </form>
+      <img src={Picker} className="emoji-image" onClick={() => setShowPicker(!showPicker)} alt="" />
+      {
+        showPicker && <EmojiPicker className="emoji-picker" onEmojiClick={onEmojiClick} />
+      }
 
     </div>
   );
