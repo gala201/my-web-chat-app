@@ -25,8 +25,11 @@ const Input = ({ onSendMessage }) => {
   }
 
   return (
-    <div className="input">
+
+    <div className="input-container">
+
       <form onSubmit={(e) => onSubmit(e)} className="input-form">
+
         <input
           onChange={(e) => onChange(e)}
           value={textInputs}
@@ -34,12 +37,13 @@ const Input = ({ onSendMessage }) => {
           placeholder="Start a new message"
           className="chat-input"
         />
-        <img src={Picker} onClick={() => setShowPicker(!showPicker)} alt="" />
+        <img src={Picker} className="emoji-image" onClick={() => setShowPicker(!showPicker)} alt="" />
         {
-          showPicker && <EmojiPicker onEmojiClick={onEmojiClick} />
+          showPicker && <EmojiPicker className="emoji-picker" onEmojiClick={onEmojiClick} />
         }
         <button><img src={enter} alt="" /></button>
       </form>
+
     </div>
   );
 };
