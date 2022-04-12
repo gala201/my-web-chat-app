@@ -42,7 +42,7 @@ const Input = ({ onSendMessage }) => {
       </form>
       <img src={Picker} className="emoji-image" onClick={() => setShowPicker(!showPicker)} alt="" />
       {
-        showPicker && <EmojiPicker className="emoji-picker" onEmojiClick={onEmojiClick} />
+        showPicker && <EmojiPicker onEmojiClick={onEmojiClick} />
       }
 
     </div>

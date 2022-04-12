@@ -179,8 +179,8 @@ body {
 
 
             list-style: none;
-            padding-left: 50px;
-            padding-right: 50px;
+            padding-left: 75px;
+            padding-right: 75px;
             /*                 flex-grow: 1;
                 overflow: auto; */
 
@@ -259,7 +259,7 @@ body {
         .input-container {
 
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             height: 62px;
             background-color: #fff;
@@ -275,11 +275,18 @@ body {
                 margin: 5px;
             }
 
+            .emoji-picker-react {
+                position: absolute;
+                left: 28%;
+                bottom: 50px;
+            }
+
             form.input-form {
-                flex: 1;
+
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
 
 
 
@@ -289,7 +296,7 @@ body {
                     font-size: 16px;
                     border-radius: 24px;
                     border: 1px solid #E8E8E8;
-                    width: 60%;
+                    width: 600px;
 
                 }
 
