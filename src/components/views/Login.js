@@ -22,6 +22,8 @@ const Login = ({ setLogin }) => {
     const avatar2 = Ninja
     const avatar3 = Anon
 
+    const [avatarBorder, setAvatarBorder] = useState(0)
+
     useEffect(() => {
         console.log(user);
     }, [user])
@@ -51,6 +53,15 @@ const Login = ({ setLogin }) => {
             ...previous, avatar: id
         }))
 
+        if (id === avatar1) {
+            setAvatarBorder(1)
+        } else if (id === avatar2) {
+            setAvatarBorder(2)
+        } else {
+            setAvatarBorder(3)
+        }
+
+        console.log(avatarBorder);
     }
 
     const handleLogin = () => {
@@ -75,10 +86,10 @@ const Login = ({ setLogin }) => {
             <div className="avatars">
 
 
-                <img src={Astronaut} alt="Astronaut" onClick={() => handleImage(avatar1)} />
+                <img src={Astronaut} alt="Astronaut" style={{ border: avatarBorder === 1 && "2px solid black" }} onClick={() => handleImage(avatar1)} />
 
-                <img src={Ninja} alt="Ninja" onClick={() => handleImage(avatar2)} />
-                <img src={Anon} alt="Anon" onClick={() => handleImage(avatar3)} />
+                <img src={Ninja} alt="Ninja" style={{ border: avatarBorder === 2 && "2px solid black" }} onClick={() => handleImage(avatar2)} />
+                <img src={Anon} alt="Anon" style={{ border: avatarBorder === 3 && "2px solid black" }} onClick={() => handleImage(avatar3)} />
             </div>
 
 
