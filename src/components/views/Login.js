@@ -5,8 +5,6 @@ import Anon from "../assets/avatars/anon.svg"
 import { useState, useEffect, useContext } from "react";
 import React from "react";
 
-
-
 import { Link } from "react-router-dom";
 import { UsersContext } from "../../App";
 

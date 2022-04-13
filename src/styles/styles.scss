@@ -56,7 +56,7 @@ body {
         border: 2px solid #E8E8E8;
         border-radius: 24px;
         flex-grow: 0;
-        margin-bottom: 80px;
+        margin-bottom: 40px;
     }
 
     div.avatars {
@@ -137,13 +137,6 @@ body {
                     margin-top: 6px;
                 }
 
-                .random-color {
-                    width: 36px;
-                    height: 36px;
-                    border-radius: 50%;
-                    background-color: aquamarine;
-                    margin-right: 13px;
-                }
             }
         }
     }
@@ -170,19 +163,14 @@ body {
 
 
 
-
-
         .Messages-list {
             flex: 1;
             padding: 20px 0;
-            overflow-y: scroll;
-
 
             list-style: none;
             padding-left: 75px;
             padding-right: 75px;
-            /*                 flex-grow: 1;
-                overflow: auto; */
+
 
             .Messages-message {
                 display: flex;
@@ -200,7 +188,8 @@ body {
                         font-size: 16px;
                         line-height: 26px;
                         letter-spacing: 0em;
-                        text-align: left;
+                        text-align: right;
+
 
                     }
 
@@ -242,6 +231,10 @@ body {
                         color: #141414;
                     }
 
+                    .username {
+                        text-align: left;
+                    }
+
 
                 }
 
@@ -263,7 +256,7 @@ body {
             align-items: center;
             height: 62px;
             background-color: #fff;
-            border-top: 1px solid lightgray;
+
 
 
             position: relative;
@@ -277,7 +270,7 @@ body {
 
             .emoji-picker-react {
                 position: absolute;
-                left: 28%;
+                left: 30%;
                 bottom: 50px;
             }
 

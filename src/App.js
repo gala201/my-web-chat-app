@@ -11,19 +11,11 @@ import './styles/styles.scss'
 
 export const UsersContext = React.createContext()
 
-function randomColor() {
-  return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
-}
-
-
 
 function App() {
 
-  // emoji picker react
-
   const [user, setUser] = useState({
     username: "",
-    randomColor: randomColor(),
     avatar: '',
   })
 
@@ -86,8 +78,8 @@ function App() {
           const userColor = chatUser.clientData.avatar
 
           const date = new Date()
-          const hour = date.getHours()
-          const minutes = date.getMinutes()
+          const hour = String(date.getHours()).padStart(2, '0');
+          const minutes = String(date.getMinutes()).padStart(2, '0');
 
 
           setMessages((oldArray) => [
