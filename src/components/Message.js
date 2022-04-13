@@ -18,7 +18,7 @@ const Message = ({ messages, users }) => {
           <div key={messages.indexOf(message)} className={(message.chatUserID === users)
             ? "Messages-message"
             : "Messages-message currentMember"}>
-            <img src={message.userColor} className="avatar" alt="" />
+            <img src={message.userColor} style={{ backgroundColor: message.bgColor }} className="avatar" alt="" />
             <div className="Message-content">
               <div className="username">{message.username}</div>
               <div className="text">{message.text}</div>

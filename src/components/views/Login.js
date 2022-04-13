@@ -45,6 +45,8 @@ const Login = ({ setLogin }) => {
     }
 
 
+
+
     const handleImage = (id) => {
 
         setUser(previous => ({
@@ -89,10 +91,10 @@ const Login = ({ setLogin }) => {
                 <img src={Ninja} alt="Ninja" style={{ border: avatarBorder === 2 && "2px solid black" }} onClick={() => handleImage(avatar2)} />
                 <img src={Anon} alt="Anon" style={{ border: avatarBorder === 3 && "2px solid black" }} onClick={() => handleImage(avatar3)} />
             </div>
-
+            <input type="color" name="bgColor" id="" onChange={(e) => handleInput(e)} />
 
             <Link to="/chat">
-                <button type="submit" className="login-button" onClick={handleLogin} disabled={user.username.length < 3 ? true : false}>OK</button>
+                <button type="submit" className="login-button" onClick={handleLogin} disabled={(user.username.length > 3 && user.avatar) ? false : true}>OK</button>
             </Link>
 
 

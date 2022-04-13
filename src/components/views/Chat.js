@@ -32,8 +32,8 @@ const Chat = ({ members, messages, users, onSendMessage }) => {
                                 console.log(v);
                                 return (
                                     <div className='chatter'>
-                                        <img src={v.clientData.avatar} className="chatter-avatar" alt="" />
-                                        <div key={v.id}>{v.clientData.username} </div>
+                                        <img src={v.clientData.avatar} className="chatter-avatar" style={{ backgroundColor: v.clientData.bgColor }} alt="" />
+                                        <div key={v.id} >{v.clientData.username} </div>
                                     </div>
 
                                 )

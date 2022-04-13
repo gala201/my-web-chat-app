@@ -17,6 +17,7 @@ function App() {
   const [user, setUser] = useState({
     username: "",
     avatar: '',
+    bgColor: ''
   })
 
   const [login, setLogin] = useState(false)
@@ -76,6 +77,7 @@ function App() {
           const username = chatUser.clientData.username;
           const chatUserID = chatUser.id;
           const userColor = chatUser.clientData.avatar
+          const bgColor = chatUser.clientData.bgColor
 
           const date = new Date()
           const hour = String(date.getHours()).padStart(2, '0');
@@ -84,7 +86,7 @@ function App() {
 
           setMessages((oldArray) => [
             ...oldArray,
-            { text, username, userColor, chatUserID, user, hour, minutes },
+            { text, username, userColor, chatUserID, user, hour, minutes, bgColor },
           ]);
         });
       });
@@ -113,7 +115,7 @@ function App() {
 
 
           <Routes>
-            <Route path='/' element={<Login setLogin={setLogin} />} />
+            <Route path='/' element={<Login setLogin={setLogin} login={login} />} />
             <Route path='/chat' element={<Chat
               messages={messages}
               users={users}
