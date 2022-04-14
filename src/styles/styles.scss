@@ -3,8 +3,6 @@ body {
     padding: 0;
 }
 
-
-
 .landing-page {
     width: 100vw;
     height: 100vh;
@@ -23,8 +21,6 @@ body {
         text-align: left;
         margin-top: 120px;
         margin-bottom: 120px;
-
-
     }
 
     h2 {
@@ -36,7 +32,6 @@ body {
         letter-spacing: 0em;
         text-align: center;
         margin-bottom: 24px;
-
     }
 
     h5 {
@@ -69,12 +64,9 @@ body {
             border-radius: 13px;
             border: 1px solid transparent;
 
-
             &:hover {
                 box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.16);
             }
-
-
         }
     }
 
@@ -84,13 +76,11 @@ body {
         border-radius: 100px;
         padding: 18px, 48px, 18px, 48px;
         background-color: #21978B;
-        margin-top: 70px;
+        margin-top: 50px;
         border: none;
         color: white;
     }
 }
-
-
 
 .App {
     display: flex;
@@ -130,13 +120,11 @@ body {
                     border: #141414 solid 1px;
                     border-radius: 50%;
                     margin-right: 10px;
-
                 }
 
                 .chatter-name {
                     margin-top: 6px;
                 }
-
             }
         }
     }
@@ -147,7 +135,6 @@ body {
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-
         position: relative;
 
         .App-header {
@@ -158,19 +145,14 @@ body {
             color: white;
             position: sticky;
             top: 0;
-
         }
-
-
 
         .Messages-list {
             flex: 1;
             padding: 20px 0;
-
             list-style: none;
             padding-left: 75px;
             padding-right: 75px;
-
 
             .Messages-message {
                 display: flex;
@@ -189,8 +171,6 @@ body {
                         line-height: 26px;
                         letter-spacing: 0em;
                         text-align: right;
-
-
                     }
 
                     .text {
@@ -216,7 +196,6 @@ body {
             }
 
             .currentMember {
-                /* justify-content: flex-end; */
                 flex-direction: row;
                 text-align: right;
 
@@ -234,8 +213,6 @@ body {
                     .username {
                         text-align: left;
                     }
-
-
                 }
 
                 .avatar {
@@ -250,17 +227,12 @@ body {
 
 
         .input-container {
-
             display: flex;
             justify-content: center;
             align-items: center;
             height: 62px;
             background-color: #fff;
-
-
-
             position: relative;
-
 
             img.emoji-image {
                 width: 24px;
@@ -275,14 +247,9 @@ body {
             }
 
             form.input-form {
-
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
-
-
-
 
                 input {
                     padding: 8px 20px;
@@ -290,10 +257,7 @@ body {
                     border-radius: 24px;
                     border: 1px solid #E8E8E8;
                     width: 600px;
-
                 }
-
-
 
                 button {
                     padding: 5px;
@@ -304,17 +268,8 @@ body {
                     color: white;
                     border: none;
                     border-radius: 8px;
-
                 }
-
-
             }
         }
-
-
-
-
     }
-
-
 }
