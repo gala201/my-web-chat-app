@@ -13,10 +13,6 @@ const Login = ({ setLogin }) => {
     const avatar3 = Anon
     const [avatarBorder, setAvatarBorder] = useState(0)
 
-    useEffect(() => {
-        console.log(user);
-    }, [user])
-
     const handleInput = (e) => {
         const value = e.target.value
         const name = e.target.name
@@ -24,7 +20,6 @@ const Login = ({ setLogin }) => {
         setUser(previous => ({
             ...previous, [name]: value
         }))
-        console.log(user);
     }
 
     const handleImage = (id) => {
@@ -39,7 +34,6 @@ const Login = ({ setLogin }) => {
         } else {
             setAvatarBorder(3)
         }
-        console.log(avatarBorder);
     }
 
     const handleLogin = () => {

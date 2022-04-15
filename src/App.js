@@ -84,10 +84,6 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    console.log(members);
-  }, [members])
-
   return (
     <>
       <Router>

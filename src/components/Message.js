@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from "uuid";
 import { Scrollbars } from 'react-custom-scrollbars-2';
 
 const Message = ({ messages, users }) => {
-  console.log(messages)
   const [scroll, setScroll] = useState(true)
   const scrollbarRef = useRef()
 

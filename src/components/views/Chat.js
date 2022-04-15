@@ -2,11 +2,8 @@ import { useState, useEffect, useContext } from "react";
 import Input from "../Input";
 import Message from "../Message";
 import React from "react";
-import { UsersContext } from "../../App";
 
 const Chat = ({ members, messages, users, onSendMessage }) => {
-    const { user, setUser } = useContext(UsersContext)
-    console.log(members);
 
     return (
         <>
