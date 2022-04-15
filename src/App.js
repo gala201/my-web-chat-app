@@ -27,7 +27,6 @@ function App() {
       setDrone(drone);
     }
   }, [login]);
-  // eslint-disable-next-line
 
   useEffect(() => {
     if (drone) {

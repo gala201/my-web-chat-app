@@ -6,7 +6,6 @@ import { UsersContext } from "../../App";
 
 const Chat = ({ members, messages, users, onSendMessage }) => {
     const { user, setUser } = useContext(UsersContext)
-    console.log("ffff");
     console.log(members);
 
     return (
@@ -18,7 +17,6 @@ const Chat = ({ members, messages, users, onSendMessage }) => {
                     <div className='participants'>
                         {
                             members?.map(v => {
-                                console.log(v);
                                 return (
                                     <div className='chatter'>
                                         <img src={v.clientData.avatar} className="chatter-avatar" style={{ backgroundColor: v.clientData.bgColor }} alt="" />

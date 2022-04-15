@@ -1,12 +1,29 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Scrollbars } from 'react-custom-scrollbars-2';
 
 const Message = ({ messages, users }) => {
   console.log(messages)
+  const [scroll, setScroll] = useState(true)
+  const scrollbarRef = useRef()
+
+  useEffect(() => {
+    if (scroll) {
+      scrollbarRef.current.scrollToBottom()
+    }
+  }, [messages])
+
+  const handleScroll = () => {
+    const position = window.pageYOffset
+    if (position > 50) {
+      setScroll(false)
+    } else {
+      setScroll(true)
+    }
+  }
 
   return (
-    <Scrollbars style={{ width: '100%', height: '90%' }} >
+    <Scrollbars style={{ width: '100%', height: '90%' }} ref={scrollbarRef} onScroll={handleScroll} >
       <ul className="Messages-list">
         {messages?.map((message) => (
           <div key={messages.indexOf(message)} className={(message.chatUserID === users)
